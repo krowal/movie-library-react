@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-import MainMenu from "./partials/main-menu";
+import MainMenu from './partials/MainMenu';
+import VideoMenu from './partials/VideoMenu';
 
 export default class App extends Component{
     render(){
         return (
-            <div>
+            <div className="container">
                 <MainMenu />
-                <h1>This is video library app</h1>
-                <div>
-                    {this.props.children}
+                <VideoMenu />
+                <div className="container-fluid">
+                    <div>
+                        {this.props.children}
+                    </div>
                 </div>
             </div>
         )

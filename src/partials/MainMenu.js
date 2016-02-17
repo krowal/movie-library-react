@@ -5,11 +5,7 @@ export default class MainMenu extends Component{
         return (
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
-                    <div className="navbar-header">
-                        <a className="navbar-brand" href="#">
-                            Lukasz Kowalski
-                        </a>
-                    </div>
+                    <p className="navbar-text pull-right">Lukasz Kowalski</p>
                 </div>
             </nav>
         )
