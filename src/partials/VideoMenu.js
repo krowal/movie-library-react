@@ -16,9 +16,9 @@ export default class VideoMenu extends Component{
     render(){
         return(
             <ul className="nav nav-pills">
-                {menu.map(function(item){
+                {menu.map((item, idx) => {
                     return (
-                        <li className={item.path == location.pathname ? "active" : ""} role="presentation">
+                        <li key={idx} className={item.path == location.pathname ? "active" : ""} role="presentation">
                             <Link to={item.path}>{item.name}</Link>
                         </li>
                     );
