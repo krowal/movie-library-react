@@ -1,9 +1,9 @@
 import assert from 'assert';
 
-import {VideoStorage} from '../src/lib/VideoStorage';
+import VideoStorageBase from '../src/lib/VideoStorageBase';
 import TestStorage from './lib/TestStorage';
 
-let EntryStorage = new VideoStorage(TestStorage);
+let EntryStorage = new VideoStorageBase(TestStorage);
 
 describe('VideoStorage', () => {
     describe('getSingle()', () => {
@@ -15,7 +15,9 @@ describe('VideoStorage', () => {
         });
 
         it('should return undefined when entry with given id doesnt exists in storage list', () => {
-            assert.equal(2, 2);
+            assert(() => {
+                return undefined === EntryStorage.getSingle(10)
+            });
         });
     })
 });
