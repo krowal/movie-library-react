@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import MainMenu from './partials/MainMenu';
-import VideoMenu from './partials/VideoMenu';
+import MainMenu from './components/partials/MainMenu';
+import VideoMenu from './components/partials/VideoMenu';
 
 export default class App extends Component{
     render(){
