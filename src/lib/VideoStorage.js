@@ -39,13 +39,20 @@ class VideoStorage {
             this.list.push(data);
         }
 
-        this.storage.setItem("video_library_list", JSON.stringify(this.list));
-
-        return this.list;
+        this.storage.setItem("video_library_list", this.list);
     }
 
-    getList(){
-        return this.list;
+    getPager(page = 1, limit = 2){
+        let maxPages    = Math.ceil(this.list.length / limit),
+            start       = (page-1) * limit,
+            end         = start + limit;
+
+        return {
+            page:   page,
+            limit:  limit,
+            max:    maxPages,
+            items:  this.list.slice(start, end)
+        };
     }
 }
 

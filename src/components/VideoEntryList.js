@@ -2,15 +2,16 @@ import React from 'react';
 import Reflux from 'reflux';
 
 import VideoEntry from './partials/VideoEntry';
+import Pagination from './partials/Pagination';
 import VideoStore from '../stores/VideoStore';
 import {VideoActions} from '../Actions';
 
 export default React.createClass({
-    mixins: [Reflux.connect(VideoStore, "list")],
+    mixins: [Reflux.connect(VideoStore, "pager")],
 
     getInitialState(){
         return {
-            list:[]
+            pager: null
         }
     },
 
@@ -18,19 +19,22 @@ export default React.createClass({
         return (
             <div>
                 <h2>Video library list</h2>
-                {this.state.list.length ? this.renderList() : ''}
+                {this.state.pager ? this.renderList() : ''}
             </div>
         )
     },
 
     renderList(){
         return (
-            <div className="panel panel-default">
-                <div className="panel-body">
-                    {this.state.list.map((video, idx) => {
-                        return <VideoEntry key={idx} {...video}/>
-                    })}
+            <div>
+                <div className="panel panel-default">
+                    <div className="panel-body">
+                        {this.state.pager.items.map((video, idx) => {
+                            return <VideoEntry key={idx} {...video}/>
+                        })}
+                    </div>
                 </div>
+                <Pagination pager={this.state.pager}/>
             </div>
         )
     },
@@ -45,6 +49,10 @@ export default React.createClass({
     },
 
     componentDidMount(){
-        VideoActions.getList();
+        VideoActions.getList(this.props.params.page);
+    },
+
+    componentWillReceiveProps(props){
+        VideoActions.getList(props.params.page)
     }
 })

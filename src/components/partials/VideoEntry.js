@@ -18,7 +18,7 @@ export default React.createClass({
                 </div>
                 <div className="media-body">
                     <h3>
-                        <a className="btn btn-default pull-right" href={"/edit/" + this.props.id}>Edit</a>
+                        <a className="btn btn-success pull-right" href={"/edit/" + this.props.id}>Edit</a>
                         {this.props.title}
                     </h3>
                     <p>{this.props.description}</p>

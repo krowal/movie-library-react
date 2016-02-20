@@ -7,11 +7,11 @@ let VideoStore = Reflux.createStore({
 
     saveEntry(data){
         VideoStorage.save(data);
-        this.trigger(VideoStorage.getList());
+        this.trigger(VideoStorage.getPager());
     },
 
-    getList(){
-        this.trigger(VideoStorage.getList());
+    getList(page = 1){
+        this.trigger(VideoStorage.getPager(page));
     }
 });
 

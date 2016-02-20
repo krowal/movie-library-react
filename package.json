@@ -4,7 +4,8 @@
   "description": "Movie library",
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "test": "mocha --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
     "babel-preset-es2015": "^6.0.15",
     "babel-preset-react": "^6.0.15",
     "babel-preset-stage-0": "^6.0.15",
+    "babel-register": "^6.5.2",
     "eslint-plugin-react": "^3.6.2",
     "react-hot-loader": "^1.3.0",
     "webpack": "^1.12.2",

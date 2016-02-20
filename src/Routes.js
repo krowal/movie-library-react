@@ -10,6 +10,7 @@ export default (
     <Router history={browserHistory}>
         <Route name="app" path="/" component={App}>
             <IndexRoute component={VideoEntryList} />
+            <Route name="page" path="page/:page" component={VideoEntryList} />
             <Route name="add" path="add" component={VideoEntryEditor} />
             <Route name="edit" path="edit/:id" component={VideoEntryEditor} />
             <Route name="view" path="details/:id" component={VideoEntryDetails} />
