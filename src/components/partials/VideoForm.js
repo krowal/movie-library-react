@@ -1,10 +1,10 @@
 import React from 'react';
-import {VideoController} from '../../stores/VideoStore';
+import VideoStorage from '../../lib/VideoStorage';
 
 export default React.createClass({
     getInitialState(){
         return {
-            video: VideoController.getEmptyVideoEntry()
+            video: VideoStorage.getEmptyVideoEntry()
         }
     },
 

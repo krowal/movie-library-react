@@ -1,13 +1,14 @@
 import React from 'react';
 import VideoForm from './partials/VideoForm';
 import {VideoActions} from '../Actions';
-import VideoStore, {VideoController} from '../stores/VideoStore';
+import VideoStore from '../stores/VideoStore';
+import VideoStorage from '../lib/VideoStorage';
 import {browserHistory} from 'react-router';
 
 export default React.createClass({
     getInitialState(){
         return {
-            video:VideoController.getEmptyVideoEntry()
+            video:VideoStorage.getEmptyVideoEntry()
         }
     },
 
@@ -44,7 +45,7 @@ export default React.createClass({
         let id = params.id ? params.id : null;
 
         this.setState({
-            video: id !== null ? VideoController.getSingle(id) : VideoController.getEmptyVideoEntry()
+            video: id !== null ? VideoStorage.getSingle(id) : VideoStorage.getEmptyVideoEntry()
         });
     }
 })
